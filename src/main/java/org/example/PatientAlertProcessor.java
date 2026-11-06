@@ -18,12 +18,12 @@ public class PatientAlertProcessor {
         this.emergencyNotificationService = emergencyNotificationService;
     }
 
-    public void processRoutineAlert(Patient patient, String message) {
+    public void processRoutineAlert( patient_id, String message) {
         System.out.println("--- Processing Routine Communication ---");
-        defaultNotificationService.sendNotification(patient, message);
+        defaultNotificationService.sendNotification(patient_id, message);
     }
 
-    public void processCriticalIcuAlert(Patient patient, String message) {
+    public void processCriticalIcuAlert( patient_id, String message) {
         System.out.println("--- Processing Critical ICU Alert ---");
         emergencyNotificationService.sendNotification(patient, message);
     }

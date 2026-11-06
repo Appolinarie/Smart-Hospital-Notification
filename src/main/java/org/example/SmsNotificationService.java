@@ -13,9 +13,13 @@ public class SmsNotificationService implements NotificationService {
     private String apiSecret;
 
     @Override
-    public void sendNotification(Patient patient, String message) {
-        System.out.println("[SMS SERVICE] [" + hospitalName + "] Sending SMS to " + patient.getName()
-                + " at Phone: " + patient.getPhoneNumber());
-        System.out.println("Message: " + message + " (Authenticated with API Secret)");
+    public void sendNotification(Patient_id, String message) {
+        System.out.println("[SMS SERVICE] [" + hospitalName + "] Sending SMS to " + patient.getName() + " at Phone: " + patient.getPhoneNumber());
+
+    }
+
+    @Override
+    public void sendNotification(String message) {
+
     }
 }

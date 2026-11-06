@@ -20,16 +20,16 @@ This is a Spring Boot application that demonstrates Spring IoC, Dependency Injec
 
  Environment Configuration
 
-Create a `.org` file with:
+Create a `.env` file with:
 
-```org
+```env
 HOSPITAL_API_SECRET=your_secret_key
 HOSPITAL_NAME=Your_Hospital_Name
 ```
 
-Never upload your `.org` file to GitHub.
+Never upload your `.env` file to GitHub.
 
-Use `.org.example` as a template.
+Use `.env.example` as a template.
 
  How to Run
 

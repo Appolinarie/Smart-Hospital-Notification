@@ -1,7 +1,6 @@
 package org.example;
 
 
-
 public interface NotificationService {
-    void sendNotification(Patient patient, String message);
+    void sendNotification( patient_id, String message);
 }
