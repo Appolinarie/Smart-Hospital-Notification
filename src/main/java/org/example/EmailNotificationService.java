@@ -12,5 +12,4 @@ public class EmailNotificationService implements NotificationService {
         System.out.println("[EMAIL SERVICE] Sending routine email to " + patient.getName()
                 + " (Email: " + patient.getEmail() + ", ID: " + patient.getId() + ")");
         System.out.println("Message: " + message);
-    }
 }

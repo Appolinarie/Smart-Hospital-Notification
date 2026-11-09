@@ -2,29 +2,33 @@ package org.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class PatientAlertProcessor {
 
-    private final NotificationService defaultNotificationService;
-    private final NotificationService emergencyNotificationService;
+    @Autowired
+    @Qualifier("Emergency")
+    private NotificationService notification;
 
     @Autowired
-    public PatientAlertProcessor(
-            NotificationService defaultNotificationService,
-            @Qualifier("emergencyService") NotificationService emergencyNotificationService) {
-        this.defaultNotificationService = defaultNotificationService;
-        this.emergencyNotificationService = emergencyNotificationService;
+    @Qualifier("Sms")
+    private NotificationService notifications;
+
+    @Value("${HOSPITAL_NAME}")
+    private String hospitalName;
+
+    public PatientAlertProcessor(NotificationService notification){
+        this.notification = notification;
     }
 
-    public void processRoutineAlert( patient_id, String message) {
-        System.out.println("--- Processing Routine Communication ---");
-        defaultNotificationService.sendNotification(patient_id, message);
+    public void send(String patientId, String message){
+        System.out.println("THIS HOSPITAL:" +hospitalName)
+        notification.sendNotification(patientId, message);
     }
-
-    public void processCriticalIcuAlert( patient_id, String message) {
-        System.out.println("--- Processing Critical ICU Alert ---");
-        emergencyNotificationService.sendNotification(patient, message);
+    public void send(String patientId,String message, String hospital){
+        System.out.println("***THIS IS " + hospital + "***");
+        notifications.sendNotification(patientId, message, hospital);
     }
 }
